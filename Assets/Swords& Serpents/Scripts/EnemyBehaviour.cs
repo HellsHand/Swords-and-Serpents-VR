@@ -5,6 +5,7 @@ public class EnemyBehaviour : MonoBehaviour {
 
     TextMesh textMesh;
 
+    private GameObject player;
     private EnemySpawner spawn;
     private int hitpoints;
     private int dodgeChance;
@@ -12,8 +13,10 @@ public class EnemyBehaviour : MonoBehaviour {
     void Start()
     {
         textMesh = GameObject.Find("DialogBox").GetComponent<TextMesh>();
+        player = GameObject.Find("[S&SCameraRig]");
         dodgeChance = 15;
         hitpoints = 10;
+        transform.LookAt(player.transform.position);
     }
 
     public void DeathStrike()
